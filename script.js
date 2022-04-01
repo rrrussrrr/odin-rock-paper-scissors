@@ -6,8 +6,13 @@ function randomInt(min,max) {
 function computerPlay() {
 
     let computerChoice = randomInt(1,3);
-    return computerChoice;
-    
+    if (computerChoice === 1) {
+        return 'Rock';
+    } else if (computerChoice === 2) {
+        return 'Paper';
+    } else if (computerChoice === 3) {
+        return 'Scissors';
+    }   
 }
 
 let computer = computerPlay();
