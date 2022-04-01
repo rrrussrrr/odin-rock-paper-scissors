@@ -17,8 +17,6 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
 
-    let pl
-    let winBool = false;
     if (playerSelection === computerSelection) {
         return `TIE!  You both picked ${playerSelection}!`;
     } else if (playerSelection === 'Rock') {
@@ -36,10 +34,24 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerChoice = 'Rock';
+function capitalizeFirst(string){
+    string = string.toLowerCase();
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function playerInput() {
+}
+
+
+
+function game() {
+
+}
+
+let playerChoice = 'rOck';
+playerChoice = capitalizeFirst(playerChoice);
 let computerChoice = computerPlay();
 let message;
-console.log(playerChoice);
+console.log(capitalizeFirst(playerChoice));
 console.log(computerChoice);
 message = playRound(playerChoice, computerChoice);
 console.log(message);
