@@ -38,23 +38,33 @@ function capitalizeFirst(string){
     string = string.toLowerCase();
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-function playerInputCheck(input) {
+function playerInputCheck() {
+    let input = window.prompt("Rock, Paper, or Scissors?");
+    input = capitalizeFirst(input);
     if (input === 'Rock' || input === 'Paper' || input === 'Scissors' ) {
+        playerChoice = input;
         return true;
-    } else return false;
-
+    } else {
+        alert("Invalid choice!");
+        return false;
+    }
 }
-
-
 
 function game() {
-
+    let playerChoice = window.prompt("Rock, Paper, or Scissors?");
+    capitalizeFirst(playerChoice);
+    if (playerInputCheck(player.choice) === false) {
+        
+    }
+    
 }
 
-let playerChoice = 'rOck';
-console.log(playerInputCheck(playerChoice));
-playerChoice = capitalizeFirst(playerChoice);
-console.log(playerInputCheck(playerChoice));
+let playerChoice;
+playerInputCheck();
+
+
+
+
 let computerChoice = computerPlay();
 let message;
 console.log(capitalizeFirst(playerChoice));
