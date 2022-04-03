@@ -5,12 +5,12 @@ function randomInt(min,max) {
 
 function computerPlay() {
 
-    let computerChoice = randomInt(1,3);
-    if (computerChoice === 1) {
+    let compChoose = randomInt(1,3);
+    if (compChoose === 1) {
         return 'Rock';
-    } else if (computerChoice === 2) {
+    } else if (compChoose === 2) {
         return 'Paper';
-    } else if (computerChoice === 3) {
+    } else if (compChoose === 3) {
         return 'Scissors';
     }   
 }
@@ -38,36 +38,42 @@ function capitalizeFirst(string){
     string = string.toLowerCase();
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-function playerInputCheck() {
-    let input = window.prompt("Rock, Paper, or Scissors?");
-    input = capitalizeFirst(input);
+
+// playerInputCheck
+// Checks if input is rock, paper, or scissors.  Defaults to Rock in a conflict
+function playerInputCheck(input) {
     if (input === 'Rock' || input === 'Paper' || input === 'Scissors' ) {
-        playerChoice = input;
-        return true;
+        return input;
     } else {
-        alert("Invalid choice!");
-        return false;
+        alert("Invalid choice! Defaulting to Rock");
+        return 'Rock';
     }
 }
 
 function game() {
-    let playerChoice = window.prompt("Rock, Paper, or Scissors?");
-    capitalizeFirst(playerChoice);
-    if (playerInputCheck(player.choice) === false) {
+
+    let playerWinCount = 0;
+    let computerWinCount = 0;
+    let computerChoice;
+    let playerChoice;
+    for (i = 0; i < 5; i++) {
+        // Making choices
+        computerChoice = computerPlay(); // computer pick
+        console.log(computerChoice);
+        playerChoice = window.prompt("Rock, Paper, or Scissors?"); // user pick
+        console.log(playerChoice);
+        playerChoice = capitalizeFirst(playerChoice); // formatting input
+        console.log(playerChoice);
+        playerChoice = playerInputCheck(playerChoice); // checking valid input
+        console.log(playerChoice);
+
+        console.log(playRound(playerChoice, computerChoice)); // play!
+
         
+
     }
+
     
 }
 
-let playerChoice;
-playerInputCheck();
-
-
-
-
-let computerChoice = computerPlay();
-let message;
-console.log(capitalizeFirst(playerChoice));
-console.log(computerChoice);
-message = playRound(playerChoice, computerChoice);
-console.log(message);
+game();
