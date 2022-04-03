@@ -17,22 +17,23 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
 
-    if (playerSelection === computerSelection) {
-        return `TIE!  You both picked ${playerSelection}!`;
-    } else if (playerSelection === 'Rock') {
-        if (computerSelection === 'Paper') {
+    if ((playerSelection === 'Rock' && computerSelection == 'Scissors') ||
+        (playerSelection === 'Scissors' && computerSelection == 'Paper') ||
+        (playerSelection === 'Paper' && computerSelection == 'Rock')) {
+            playerWinCount++;
+            return `WIN!  ${playerSelection} beats ${computerSelection}!`;
+        }
+        else if (playerSelection === computerSelection) {
+            return `TIE!  You both picked ${playerSelection}!`;
+        }
+         else {
+             computerWinCount++;
             return `LOSE!  ${playerSelection} loses to ${computerSelection}!`;
-        } else return `WIN!  ${playerSelection} beats ${computerSelection}!`;
-    } else if (playerSelection === 'Paper') {
-        if (computerSelection === 'Scissors') {
-            return `LOSE!  ${playerSelection} loses to ${computerSelection}!`;
-        } else return `WIN!  ${playerSelection} beats ${computerSelection}!`;
-    } else if (playerSelection === 'Scissors') {
-        if (computerSelection === 'Rock') {
-            return `LOSE!  ${playerSelection} loses to ${computerSelection}!`;
-        } else return `WIN!  ${playerSelection} beats ${computerSelection}!`;
-    }
+        }
+
 }
+
+
 
 function capitalizeFirst(string){
     string = string.toLowerCase();
@@ -50,13 +51,20 @@ function playerInputCheck(input) {
     }
 }
 
+let playerWinCount;
+let computerWinCount;
+let computerChoice;
+let playerChoice;
+
 function game() {
 
-    let playerWinCount = 0;
-    let computerWinCount = 0;
-    let computerChoice;
-    let playerChoice;
+    playerWinCount = 0;
+    computerWinCount = 0;
+    computerChoice = 0;
+    playerChoice = 0;
+
     for (i = 0; i < 5; i++) {
+        // resetting values
         // Making choices
         computerChoice = computerPlay(); // computer pick
         console.log(computerChoice);
@@ -68,10 +76,16 @@ function game() {
         console.log(playerChoice);
 
         console.log(playRound(playerChoice, computerChoice)); // play!
-
-        
+        console.log(computerWinCount);
+        console.log(playerWinCount);
 
     }
+
+    if (playerWinCount > computerWinCount) {
+        console.log('You win!');
+    } else if (playerWinCount < computerWinCount){
+        console.log('You lose!')
+    } else console.log(`It's a draw!`);
 
     
 }
