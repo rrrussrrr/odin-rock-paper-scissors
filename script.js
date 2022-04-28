@@ -90,4 +90,3 @@ function game() {
     
 }
 
-game();
