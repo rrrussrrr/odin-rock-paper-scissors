@@ -34,8 +34,7 @@ function playRound(e) {
         (playerSelection === 'Scissors' && computerSelection == 'Paper') ||
         (playerSelection === 'Paper' && computerSelection == 'Rock')) {
             playerWinCount++;
-            console.log(playerWinCount);
-            document.getElementById('playerwins').textContent = playerWinCount;
+            document.getElementById('playerwins').textContent =  `Player Score: ` + playerWinCount;
             document.getElementById('result').textContent = `WIN!  ${playerSelection} beats ${computerSelection}!`;
         }
         else if (playerSelection === computerSelection) {
@@ -43,7 +42,7 @@ function playRound(e) {
         }
          else {
              computerWinCount++;
-             document.getElementById('compwins').textContent = computerWinCount;
+             document.getElementById('compwins').textContent = `Computer Score: ` + computerWinCount;
              document.getElementById('result').textContent = `LOSE! ${playerSelection} loses to ${computerSelection}!`;
         }
 
