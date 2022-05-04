@@ -1,0 +1,19 @@
+.choice {
+
+    background-color:#3882F6;
+    color:#f9faf8;
+    border-color: #f9faf8;
+    border-radius:15px;
+    font-size: 18px;
+    align-self: center;
+    padding: 5px 20px;
+
+}
+
+#choices {
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
